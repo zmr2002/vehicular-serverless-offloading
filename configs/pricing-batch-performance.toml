@@ -1,0 +1,8 @@
+[benchmark]
+base_config = "paper-thesis-hybrid.toml"
+output_dir = "results/verified/pricing-batch-performance"
+checkpoint_root = "results/verified/final-multiseed/replicate-01"
+steps = 250
+vehicle_count = 2000
+seed = 43
+minimum_free_disk_gb = 12.0

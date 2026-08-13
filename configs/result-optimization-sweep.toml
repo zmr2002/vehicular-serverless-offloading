@@ -1,0 +1,62 @@
+[sweep]
+base_config = "paper-improved.toml"
+output_dir = "results/verified/result-optimization-sweep"
+steps = 500
+vehicle_counts = [1000, 4000]
+seed = 11
+reference_strategies = ["dqn", "stackelberg"]
+
+[[profile]]
+name = "thesis_channel_baseline"
+v2v_channel_bandwidth_mhz = 50.0
+v2v_reference_snr_db = 40.0
+v2v_path_loss_exponent = 3.5
+v2i_path_loss_exponent = 3.0
+v2v_max_spectral_efficiency_bps_hz = 10.0
+max_instances = 10
+
+[[profile]]
+name = "v2v_channel_80mhz"
+v2v_channel_bandwidth_mhz = 80.0
+v2v_reference_snr_db = 40.0
+v2v_path_loss_exponent = 3.5
+v2i_path_loss_exponent = 3.0
+v2v_max_spectral_efficiency_bps_hz = 10.0
+max_instances = 10
+
+[[profile]]
+name = "v2v_channel_120mhz"
+v2v_channel_bandwidth_mhz = 120.0
+v2v_reference_snr_db = 40.0
+v2v_path_loss_exponent = 3.5
+v2i_path_loss_exponent = 3.0
+v2v_max_spectral_efficiency_bps_hz = 10.0
+max_instances = 10
+
+[[profile]]
+name = "v2v_reference_snr_35"
+v2v_channel_bandwidth_mhz = 120.0
+v2v_reference_snr_db = 35.0
+v2v_path_loss_exponent = 3.5
+v2i_path_loss_exponent = 3.0
+v2v_max_spectral_efficiency_bps_hz = 10.0
+max_instances = 10
+
+[[profile]]
+name = "v2v_path_loss_3"
+v2v_channel_bandwidth_mhz = 120.0
+v2v_reference_snr_db = 40.0
+v2v_path_loss_exponent = 3.0
+v2i_path_loss_exponent = 3.0
+v2v_max_spectral_efficiency_bps_hz = 10.0
+max_instances = 10
+
+[[profile]]
+name = "elastic_cloud_50"
+v2v_channel_bandwidth_mhz = 120.0
+v2v_reference_snr_db = 40.0
+v2v_path_loss_exponent = 3.5
+v2i_path_loss_exponent = 3.0
+v2v_max_spectral_efficiency_bps_hz = 10.0
+max_instances = 50
+cloud_compute_hz = 5.0e10

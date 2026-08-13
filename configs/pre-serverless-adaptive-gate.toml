@@ -1,0 +1,12 @@
+extends = "paper-follower-game.toml"
+
+[simulation]
+# Frozen algorithm used for checkpoint selection before live Knative work.
+# The HTTP backend still uses the corrected physical compute and queue model.
+cloud_leader_late_tolerance = 0.0
+cloud_price_state_consistency = false
+cloud_price_response_tolerance = 0.0
+cloud_price_response_policy = "softmax"
+
+[decision]
+synchronous_v2v_queue_forecast = false

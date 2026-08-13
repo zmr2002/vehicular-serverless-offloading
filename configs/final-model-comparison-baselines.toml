@@ -1,0 +1,13 @@
+[pipeline]
+base_config = "paper-follower-game.toml"
+output_dir = "results/verified/final-model-comparison/baselines"
+training_steps = 2000
+evaluation_steps = 2000
+vehicle_counts = [1000, 2000, 4000]
+training_seed = 31415
+evaluation_seed = 48
+training_strategies = ["dqn"]
+evaluation_strategies = ["random", "greedy", "dqn", "stackelberg"]
+training_task_sample_rate = 0.0
+evaluation_task_sample_rate = 0.001
+parallelism = 4

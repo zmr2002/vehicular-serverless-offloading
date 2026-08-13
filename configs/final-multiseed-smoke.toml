@@ -1,0 +1,21 @@
+[pipeline]
+base_config = "final-multiseed-smoke-model.toml"
+output_dir = "results/verified/final-multiseed-smoke"
+training_steps = 20
+evaluation_steps = 20
+vehicle_counts = [20]
+training_seeds = [901, 902]
+evaluation_seeds = [903, 904]
+training_strategies = ["dqn", "hybrid_stackelberg"]
+evaluation_strategies = [
+    "random",
+    "greedy",
+    "dqn",
+    "stackelberg",
+    "hybrid_stackelberg",
+]
+training_task_sample_rate = 0.0
+evaluation_task_sample_rate = 0.1
+parallelism = 2
+minimum_free_disk_gb = 0.0
+storage_upper_bound_gb = 0.1

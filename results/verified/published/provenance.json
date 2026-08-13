@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "analytical": {
+    "configuration": "configs/final-decoupled-v2.toml",
+    "model_configuration": "configs/hybrid-decoupled.toml",
+    "git_commit": "1861ec6941b292b1b5c88325c87b5252206c074c",
+    "experiment_signature": "c1ff698b6f72",
+    "steps": 2000,
+    "vehicle_counts": [1000, 2000, 4000],
+    "training_seeds": [31651, 31652, 31653, 31654, 31655, 31656],
+    "evaluation_seeds": [87, 88, 89, 90, 91, 92],
+    "replicates": 6,
+    "evaluation_runs": 90,
+    "aggregate_csv_sha256": "2cc5ed79dc055604f6da034c5e54bf2af54599dd918d75c49631f6e189a86244",
+    "paired_comparisons_csv_sha256": "ba9ebd8ea02e20ac4788c80425e4341a1b234ceba8f0a2a20571d1bcbcc26b86"
+  },
+  "knative": {
+    "configuration_generator": "scripts/prepare-final-serverless-config.py",
+    "runner": "scripts/run-final-v2-knative-validation.ps1",
+    "git_commit": "3c3f4d599d53c9a683f98f4a6d65ed08cbe28968",
+    "signature": "f55c1ad18e6a305d036e24199e97a3f9091254426ec04e90a3152e6dc87386ef",
+    "steps": 2000,
+    "vehicle_counts": [1000, 2000, 4000],
+    "evaluation_seeds": [87, 88, 89],
+    "modes": ["analytical", "knative_replay", "knative_closed_loop"],
+    "strategy": "hybrid_stackelberg",
+    "checkpoint_strategy": "dqn",
+    "task_record_sample_rate": 0.001,
+    "aggregate_http_metrics_cover_all_requests": true,
+    "comparison_csv_sha256": "b044a5a04a2a653c9075edc9ebcbb8ad0d71fea2424b5de29841ed0a652042a9"
+  }
+}

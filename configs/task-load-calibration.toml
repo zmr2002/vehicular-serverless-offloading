@@ -1,0 +1,15 @@
+[calibration]
+base_config = "paper-improved.toml"
+output_dir = "results/verified/homogeneous-task-load-calibration"
+probabilities = [0.40, 0.50, 0.60, 0.65]
+target_offered_vehicle_compute_load_ratio = 0.90
+v2v_channel_bandwidths_mhz = [80.0, 100.0, 120.0]
+target_v2v_latency_advantage_ratio = 0.378
+screen_vehicle_count = 2000
+screening_steps = 2000
+screening_seed = 42
+vehicle_counts = [1000, 2000, 4000]
+training_steps = 2000
+training_seed = 31415
+evaluation_steps = 2000
+evaluation_seed = 42

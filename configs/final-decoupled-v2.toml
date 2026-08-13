@@ -1,0 +1,22 @@
+# Six-replicate final paired matrix for the adequacy-arbitrated decoupled
+# Hybrid. The base profile is selected by the epsilon screening step of
+# run-final-v2.ps1 (--base-config override); training covers only the pure
+# DQN. Seeds are fresh: 316xx/8x seeds up to 86 were consumed by the
+# diagnosis and earlier confirmations.
+[pipeline]
+base_config = "hybrid-decoupled.toml"
+output_dir = "results/verified/final-decoupled-v2"
+training_steps = 2000
+evaluation_steps = 2000
+vehicle_counts = [1000, 2000, 4000]
+training_seeds = [31651, 31652, 31653, 31654, 31655, 31656]
+evaluation_seeds = [87, 88, 89, 90, 91, 92]
+training_strategies = ["dqn"]
+evaluation_strategies = ["random", "greedy", "dqn", "stackelberg", "hybrid_stackelberg"]
+hybrid_checkpoint_strategy = "dqn"
+training_task_sample_rate = 0.0
+evaluation_task_sample_rate = 0.001
+parallelism = 6
+minimum_free_disk_gb = 12.0
+storage_upper_bound_gb = 8.0
+allow_strategy_subset = true

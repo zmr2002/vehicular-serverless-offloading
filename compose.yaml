@@ -1,0 +1,30 @@
+services:
+  function:
+    build:
+      context: ./serverless_function
+    image: vehicular-task-function:0.1.0
+    ports:
+      - "${FUNCTION_PORT:-18080}:8080"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/healthz')"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  simulator:
+    build:
+      context: .
+    image: vehicular-offloading-simulator:0.1.0
+    depends_on:
+      function:
+        condition: service_healthy
+    volumes:
+      - ./results/verified:/app/results/verified
+    command:
+      - simulate
+      - --config
+      - configs/smoke.toml
+      - --backend
+      - knative
+      - --endpoint
+      - http://function:8080

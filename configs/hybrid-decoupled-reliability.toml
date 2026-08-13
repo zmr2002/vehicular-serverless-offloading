@@ -1,0 +1,6 @@
+# Decoupled Hybrid with the online arbitration reliability defense active
+# during frozen evaluation.
+extends = "hybrid-decoupled.toml"
+
+[decision]
+hybrid_online_reliability = "evaluate"

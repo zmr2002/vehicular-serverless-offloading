@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vehicular-serverless-offloading"
+version = "0.1.0"
+description = "Reproducible DQN and Stackelberg task-offloading simulator with Docker and Knative backends"
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+  "numpy==2.2.6",
+  "scipy==1.16.0",
+  "torch==2.6.0",
+  "requests==2.32.4",
+  "eclipse-sumo==1.22.0",
+  "sumolib==1.22.0",
+  "matplotlib==3.10.3",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==8.4.1", "ruff==0.12.4", "Flask==3.1.0"]
+
+[project.scripts]
+vehicular-offloading = "vehicular_offloading.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

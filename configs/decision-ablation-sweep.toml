@@ -1,0 +1,55 @@
+[sweep]
+base_config = "paper-improved.toml"
+output_dir = "results/verified/decision-ablation-sweep"
+steps = 500
+vehicle_counts = [1000, 4000]
+seed = 11
+reference_strategies = []
+
+[[profile]]
+name = "stackelberg_thesis_space"
+strategy = "stackelberg"
+deadline_action_masking = false
+hybrid_objective_guidance = false
+
+[[profile]]
+name = "stackelberg_deadline_mask"
+strategy = "stackelberg"
+deadline_action_masking = true
+hybrid_objective_guidance = false
+
+[[profile]]
+name = "dqn_thesis_space"
+strategy = "dqn"
+deadline_action_masking = false
+hybrid_objective_guidance = false
+
+[[profile]]
+name = "dqn_deadline_mask"
+strategy = "dqn"
+deadline_action_masking = true
+hybrid_objective_guidance = false
+
+[[profile]]
+name = "hybrid_thesis_space"
+strategy = "hybrid_stackelberg"
+deadline_action_masking = false
+hybrid_objective_guidance = false
+
+[[profile]]
+name = "hybrid_deadline_only"
+strategy = "hybrid_stackelberg"
+deadline_action_masking = true
+hybrid_objective_guidance = false
+
+[[profile]]
+name = "hybrid_guidance_only"
+strategy = "hybrid_stackelberg"
+deadline_action_masking = false
+hybrid_objective_guidance = true
+
+[[profile]]
+name = "hybrid_full_improved"
+strategy = "hybrid_stackelberg"
+deadline_action_masking = true
+hybrid_objective_guidance = true

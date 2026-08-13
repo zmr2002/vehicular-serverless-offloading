@@ -1,0 +1,45 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+.idea/
+.vscode/
+.DS_Store
+
+# Generated experiment data. Curated summaries can be force-added after review.
+results/verified/**
+!results/verified/.gitkeep
+!results/verified/published/
+!results/verified/published/**
+scenarios/wakaba/generated/
+configs/.final-multiseed-replicate-*.toml
+configs/.knative-*.generated.toml
+*.pt
+*.pth
+*.nc
+
+# Local cluster and credentials
+.minikube/
+.kube/
+*.kubeconfig
+*.lic
+*.key
+*.pem
+.env
+.env.*
+
+# Third-party binaries and reports
+*.exe
+*.dll
+*.lib
+*.zip
+*.tar
+*.tar.gz
+playwright-report/
+test-results/

@@ -1,0 +1,47 @@
+[sweep]
+base_config = "paper-improved.toml"
+output_dir = "results/verified/hybrid-fusion-validation"
+steps = 500
+vehicle_counts = [4000]
+seed = 11
+reference_strategies = []
+
+[[profile]]
+name = "stackelberg_reference"
+strategy = "stackelberg"
+deadline_action_masking = true
+hybrid_objective_guidance = false
+hybrid_fusion_mode = "residual"
+hybrid_cloud_capacity_guard = false
+
+[[profile]]
+name = "hybrid_rule_heavy"
+strategy = "hybrid_stackelberg"
+deadline_action_masking = true
+hybrid_objective_guidance = true
+hybrid_fusion_mode = "residual"
+hybrid_cloud_capacity_guard = false
+
+[[profile]]
+name = "hybrid_unguarded_fusion"
+strategy = "hybrid_stackelberg"
+deadline_action_masking = true
+hybrid_objective_guidance = true
+hybrid_fusion_mode = "residual"
+hybrid_cloud_capacity_guard = false
+
+[[profile]]
+name = "hybrid_guarded_without_shedding"
+strategy = "hybrid_stackelberg"
+deadline_action_masking = true
+hybrid_objective_guidance = true
+hybrid_fusion_mode = "residual"
+hybrid_cloud_capacity_guard = true
+
+[[profile]]
+name = "hybrid_final_protected"
+strategy = "hybrid_stackelberg"
+deadline_action_masking = true
+hybrid_objective_guidance = true
+hybrid_fusion_mode = "residual"
+hybrid_cloud_capacity_guard = true

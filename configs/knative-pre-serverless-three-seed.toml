@@ -1,0 +1,30 @@
+[validation]
+base_config = "pre-serverless-adaptive-gate.toml"
+output_dir = "results/verified/serverless-pre-model-three-seed"
+steps = [2000]
+vehicle_counts = [1000, 2000, 4000]
+seeds = [48, 49, 50]
+modes = ["analytical", "knative_replay", "knative_closed_loop"]
+strategy = "hybrid_stackelberg"
+client_concurrency = 100
+analytical_parallelism = 6
+task_record_sample_rate = 0.001
+minimum_free_disk_gb = 12.0
+estimated_task_count_steps = 2000
+scale_to_zero_timeout_s = 360
+pod_poll_interval_s = 1.0
+
+[validation.checkpoints]
+"1000" = "results/verified/hybrid-seed-stability/checkpoints/hybrid-v1000-seed31416.pt"
+"2000" = "results/verified/hybrid-seed-stability/checkpoints/hybrid-v2000-seed31416.pt"
+"4000" = "results/verified/hybrid-seed-stability/checkpoints/hybrid-v4000-seed31419.pt"
+
+[validation.request_budgets]
+"1000" = 200000
+"2000" = 700000
+"4000" = 1800000
+
+[validation.estimated_task_counts]
+"1000" = 177402
+"2000" = 640195
+"4000" = 1661380

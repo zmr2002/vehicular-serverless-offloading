@@ -1,0 +1,6 @@
+# Defense arm: decoupled Hybrid with the online reliability defense, on the
+# same recording settings as the ablation arm.
+extends = "cross-checkpoint-eval.toml"
+
+[decision]
+hybrid_online_reliability = "evaluate"

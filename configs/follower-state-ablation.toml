@@ -1,0 +1,25 @@
+[sweep]
+output_dir = "results/verified/follower-state-ablation"
+checkpoint_root = "results/verified/final-multiseed/replicate-01"
+steps = 500
+vehicle_counts = [2000, 4000]
+seeds = [51, 52, 53]
+parallelism = 6
+task_record_sample_rate = 0.001
+minimum_free_disk_gb = 12.0
+
+[[profile]]
+name = "current"
+config = "paper-thesis-hybrid.toml"
+
+[[profile]]
+name = "state_consistent"
+config = "paper-thesis-hybrid-state-consistent.toml"
+
+[[profile]]
+name = "state_fixed_point"
+config = "paper-thesis-hybrid-fixed-point.toml"
+
+[[profile]]
+name = "state_argmax_control"
+config = "paper-thesis-hybrid-argmax.toml"

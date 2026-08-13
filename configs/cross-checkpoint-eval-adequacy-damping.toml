@@ -1,0 +1,6 @@
+# Ablation arm: adequacy damping of the game evidence only, with the
+# refutation defense disabled.
+extends = "cross-checkpoint-eval-adequacy.toml"
+
+[decision]
+hybrid_online_reliability = "off"

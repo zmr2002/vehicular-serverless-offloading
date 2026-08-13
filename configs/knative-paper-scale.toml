@@ -1,0 +1,28 @@
+[validation]
+base_config = "paper-follower-game.toml"
+output_dir = "results/verified/knative-paper-scale"
+steps = [2000]
+vehicle_counts = [1000, 2000, 4000]
+seed = 48
+strategy = "hybrid_stackelberg"
+client_concurrency = 100
+task_record_sample_rate = 1.0
+minimum_free_disk_gb = 12.0
+estimated_task_count_steps = 2000
+scale_to_zero_timeout_s = 360
+pod_poll_interval_s = 1.0
+
+[validation.checkpoints]
+"1000" = "results/verified/hybrid-seed-stability/checkpoints/hybrid-v1000-seed31416.pt"
+"2000" = "results/verified/hybrid-seed-stability/checkpoints/hybrid-v2000-seed31416.pt"
+"4000" = "results/verified/hybrid-seed-stability/checkpoints/hybrid-v4000-seed31419.pt"
+
+[validation.request_budgets]
+"1000" = 150000
+"2000" = 250000
+"4000" = 450000
+
+[validation.estimated_task_counts]
+"1000" = 177402
+"2000" = 640195
+"4000" = 1661380

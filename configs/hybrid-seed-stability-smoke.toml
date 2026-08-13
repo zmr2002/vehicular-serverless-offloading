@@ -1,0 +1,15 @@
+[pipeline]
+base_config = "paper-follower-game.toml"
+output_dir = "results/verified/hybrid-seed-stability-smoke"
+training_steps = 20
+evaluation_steps = 20
+vehicle_counts = [30]
+training_seeds = [901, 902]
+validation_seeds = [101, 102]
+diagnostic_seed = 103
+parallelism = 2
+validation_task_sample_rate = 0.2
+diagnostic_detail_budget_gb = 0.05
+minimum_free_disk_gb = 1.0
+stability_penalty = 0.5
+reuse_checkpoint_roots = []

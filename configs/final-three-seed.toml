@@ -1,0 +1,21 @@
+[pipeline]
+base_config = "paper-thesis-hybrid-state-consistent.toml"
+output_dir = "results/verified/final-three-seed"
+training_steps = 2000
+evaluation_steps = 2000
+vehicle_counts = [1000, 2000, 4000]
+training_seeds = [31501, 31502, 31503]
+evaluation_seeds = [61, 62, 63]
+training_strategies = ["dqn", "hybrid_stackelberg"]
+evaluation_strategies = [
+    "random",
+    "greedy",
+    "dqn",
+    "stackelberg",
+    "hybrid_stackelberg",
+]
+training_task_sample_rate = 0.0
+evaluation_task_sample_rate = 0.001
+parallelism = 6
+minimum_free_disk_gb = 12.0
+storage_upper_bound_gb = 2.0

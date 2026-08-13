@@ -1,0 +1,10 @@
+# Decoupled Hybrid profile with the per-step exploration schedule for DQN
+# training. The per-task decay 0.9998 exhausts exploration after ~30 of
+# 2,000 steps at paper scale, before the congestion phase transition
+# (~step 1,000); per-step decay 0.998 keeps exploration alive until
+# ~step 1,500. Evaluation behavior is unchanged.
+extends = "hybrid-decoupled.toml"
+
+[dqn]
+epsilon_decay_per_step = true
+epsilon_decay = 0.998

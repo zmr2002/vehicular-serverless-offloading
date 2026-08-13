@@ -1,0 +1,11 @@
+[pipeline]
+base_config = "paper-follower-game.toml"
+output_dir = "results/verified/adaptive-gate-smoke"
+training_steps = 100
+evaluation_steps = 100
+vehicle_counts = [1000]
+training_seed = 31415
+evaluation_seed = 42
+training_strategies = ["dqn", "hybrid_stackelberg"]
+evaluation_strategies = ["random", "greedy", "dqn", "stackelberg", "hybrid_stackelberg"]
+parallelism = 4

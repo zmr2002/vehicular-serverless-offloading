@@ -1,0 +1,9 @@
+# Ablation arm: decoupled Hybrid WITHOUT the online reliability defense.
+extends = "hybrid-decoupled.toml"
+
+[decision]
+hybrid_online_reliability = "off"
+
+[simulation]
+record_task_records = true
+task_record_sample_rate = 0.001

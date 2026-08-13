@@ -1,0 +1,90 @@
+[study]
+output_dir = "results/verified/hybrid-optimization-study"
+parallelism = 6
+minimum_free_disk_gb = 12.0
+storage_upper_bound_gb = 5.0
+steps = 2000
+screen_vehicle_count = 2000
+confirmation_vehicle_counts = [2000, 4000]
+final_vehicle_counts = [1000, 2000, 4000]
+training_task_sample_rate = 0.0
+evaluation_task_sample_rate = 0.001
+screen_min_material_gain = 0.0025
+confirmation_min_material_gain = 0.0025
+causal_confirmation_top = 2
+rl_confirmation_top = 2
+causal_training_seeds = [31601, 31602]
+causal_evaluation_seeds = [71, 72]
+rl_training_seeds = [31611, 31612]
+rl_evaluation_seeds = [73, 74]
+confirmation_training_seeds = [31621, 31622, 31623]
+confirmation_evaluation_seeds = [75, 76, 77]
+final_training_seeds = [31631, 31632, 31633]
+final_evaluation_seeds = [81, 82, 83]
+serverless_success_tolerance = 0.05
+serverless_current_regression_tolerance = 0.005
+serverless_enabled = true
+
+[causal_profiles.current]
+base_config = "paper-thesis-hybrid.toml"
+
+[causal_profiles.adaptive_only]
+base_config = "paper-thesis-hybrid.toml"
+[causal_profiles.adaptive_only.decision]
+hybrid_fusion_mode = "adaptive_confidence"
+
+[causal_profiles.guidance_only]
+base_config = "paper-thesis-hybrid.toml"
+[causal_profiles.guidance_only.dqn]
+game_guidance_weight = 0.05
+
+[causal_profiles.strict_cloud]
+base_config = "paper-thesis-hybrid.toml"
+[causal_profiles.strict_cloud.simulation]
+cloud_leader_late_tolerance = 0.0
+
+[causal_profiles.legacy_v2v_forecast]
+base_config = "paper-thesis-hybrid.toml"
+[causal_profiles.legacy_v2v_forecast.decision]
+synchronous_v2v_queue_forecast = false
+
+[causal_profiles.adaptive_guided]
+base_config = "paper-thesis-hybrid.toml"
+[causal_profiles.adaptive_guided.dqn]
+game_guidance_weight = 0.05
+[causal_profiles.adaptive_guided.decision]
+hybrid_fusion_mode = "adaptive_confidence"
+
+[causal_profiles.legacy_retrained]
+base_config = "pre-serverless-adaptive-gate.toml"
+
+[causal_profiles.state_consistent]
+base_config = "paper-thesis-hybrid-state-consistent.toml"
+
+[causal_profiles.fixed_point]
+base_config = "paper-thesis-hybrid-fixed-point.toml"
+
+[causal_profiles.adaptive_fixed_point]
+base_config = "paper-thesis-hybrid-fixed-point.toml"
+[causal_profiles.adaptive_fixed_point.decision]
+hybrid_fusion_mode = "adaptive_confidence"
+
+[rl_profiles.base]
+
+[rl_profiles.gamma_097.dqn]
+gamma = 0.97
+
+[rl_profiles.gamma_099.dqn]
+gamma = 0.99
+
+[rl_profiles.replay_100k.dqn]
+replay_capacity = 100000
+
+[rl_profiles.gamma_097_replay_100k.dqn]
+gamma = 0.97
+replay_capacity = 100000
+
+[rl_profiles.gamma_097_replay_100k_interval16.dqn]
+gamma = 0.97
+replay_capacity = 100000
+training_interval = 16

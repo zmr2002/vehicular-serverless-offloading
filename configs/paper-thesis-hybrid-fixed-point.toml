@@ -1,0 +1,9 @@
+extends = "paper-thesis-hybrid-state-consistent.toml"
+
+[simulation]
+cloud_price_response_iterations = 5
+cloud_price_response_min_iterations = 2
+cloud_price_response_tolerance = 0.01
+cloud_price_outer_iterations = 5
+cloud_price_outer_min_iterations = 2
+cloud_price_outer_tolerance = 0.01

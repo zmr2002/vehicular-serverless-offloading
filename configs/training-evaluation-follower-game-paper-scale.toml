@@ -1,0 +1,12 @@
+[pipeline]
+base_config = "paper-follower-game.toml"
+output_dir = "results/verified/follower-game-paper-scale"
+training_steps = 2000
+evaluation_steps = 2000
+vehicle_counts = [1000, 2000, 4000]
+training_seed = 31415
+evaluation_seed = 42
+training_strategies = ["dqn", "hybrid_stackelberg"]
+evaluation_strategies = ["random", "greedy", "dqn", "stackelberg", "hybrid_stackelberg"]
+parallelism = 4
+compatible_resume_commits = ["1e3bcb3a5409a060c051299430eaf74f6b7727e3"]

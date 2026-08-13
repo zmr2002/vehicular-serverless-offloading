@@ -1,0 +1,66 @@
+[simulation]
+steps = 5
+vehicle_count = 12
+seed = 42
+task_probability = 0.4
+strategy = "hybrid_stackelberg"
+backend = "analytical"
+mobility = "synthetic"
+output_dir = "results/verified"
+service_role_mode = "dynamic_idle"
+
+[dqn]
+state_size = 20
+action_size = 3
+hidden_sizes = [256, 128]
+replay_capacity = 100
+batch_size = 4
+learning_rate = 0.001
+gamma = 0.9
+epsilon_start = 0.5
+epsilon_end = 0.05
+epsilon_decay = 0.9
+target_update_interval = 2
+warmup_transitions = 4
+training_interval = 1
+gradient_clip_norm = 10.0
+huber_delta = 1.0
+intraop_threads = 1
+interop_threads = 1
+device = "cpu"
+
+[network]
+v2v_channel_bandwidth_mhz = 120.0
+channel_capacity_model = "shannon"
+v2v_reference_snr_db = 40.0
+v2i_reference_snr_db = 42.0
+v2v_reference_distance_m = 100.0
+v2i_reference_distance_m = 100.0
+v2v_path_loss_exponent = 3.5
+v2i_path_loss_exponent = 3.0
+minimum_channel_distance_m = 1.0
+v2v_max_spectral_efficiency_bps_hz = 10.0
+v2i_max_spectral_efficiency_bps_hz = 10.0
+max_hops = 3
+
+[energy]
+local_compute_power_w = 100.0
+v2v_transmit_power_w = 50.0
+service_compute_power_w = 80.0
+v2i_transmit_power_w = 20.0
+cloud_compute_power_w = 80.0
+
+[reward]
+
+[decision]
+deadline_action_masking = true
+hybrid_objective_guidance = true
+hybrid_fusion_mode = "delegated"
+hybrid_cloud_capacity_guard = false
+
+[serverless]
+endpoint = "http://127.0.0.1:8080"
+idle_steps_to_zero = 2
+concurrency_target = 2
+max_instances = 2
+client_concurrency = 10

@@ -1,0 +1,7 @@
+[experiment]
+base_config = "paper.toml"
+output_dir = "results/verified/paper-single-seed"
+steps = 2000
+strategies = ["random", "greedy", "dqn", "stackelberg", "hybrid_stackelberg"]
+vehicle_counts = [1000, 2000, 4000]
+seeds = [11]

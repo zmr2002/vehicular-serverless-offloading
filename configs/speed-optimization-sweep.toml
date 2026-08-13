@@ -1,0 +1,49 @@
+[sweep]
+base_config = "paper-improved.toml"
+output_dir = "results/verified/speed-optimization-sweep"
+steps = 500
+vehicle_counts = [1000, 4000]
+seed = 11
+reference_strategies = []
+
+[[profile]]
+name = "stack_reference"
+strategy = "stackelberg"
+training_interval = 32
+intraop_threads = 16
+
+[[profile]]
+name = "hybrid_thread1_interval32"
+strategy = "hybrid_stackelberg"
+training_interval = 32
+intraop_threads = 1
+
+[[profile]]
+name = "hybrid_thread16_interval16"
+strategy = "hybrid_stackelberg"
+training_interval = 16
+intraop_threads = 16
+
+[[profile]]
+name = "hybrid_thread16_interval32"
+strategy = "hybrid_stackelberg"
+training_interval = 32
+intraop_threads = 16
+
+[[profile]]
+name = "hybrid_thread16_interval64"
+strategy = "hybrid_stackelberg"
+training_interval = 64
+intraop_threads = 16
+
+[[profile]]
+name = "dqn_thread16_interval32"
+strategy = "dqn"
+training_interval = 32
+intraop_threads = 16
+
+[[profile]]
+name = "dqn_thread16_interval64"
+strategy = "dqn"
+training_interval = 64
+intraop_threads = 16

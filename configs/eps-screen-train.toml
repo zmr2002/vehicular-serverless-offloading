@@ -1,0 +1,7 @@
+# Training profile for the epsilon screening step: per-step exploration
+# schedule with task records disabled.
+extends = "hybrid-decoupled-eps.toml"
+
+[simulation]
+record_task_records = false
+record_decision_diagnostics = false

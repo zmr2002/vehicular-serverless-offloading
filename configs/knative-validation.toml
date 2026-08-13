@@ -1,0 +1,13 @@
+[validation]
+base_config = "paper-follower-game.toml"
+output_dir = "results/verified/knative-validation"
+steps = [50, 250, 500]
+vehicle_count = 1000
+seed = 48
+strategy = "hybrid_stackelberg"
+checkpoint = "results/verified/hybrid-seed-stability/checkpoints/hybrid-v1000-seed31416.pt"
+task_record_sample_rate = 1.0
+minimum_free_disk_gb = 12.0
+request_budget = 50000
+scale_to_zero_timeout_s = 240
+pod_poll_interval_s = 1.0

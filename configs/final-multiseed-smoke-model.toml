@@ -1,0 +1,12 @@
+extends = "paper-thesis-hybrid.toml"
+
+[simulation]
+route_departure_end_s = 20.0
+minimum_free_disk_gb = 0.0
+
+[dqn]
+replay_capacity = 256
+batch_size = 8
+warmup_transitions = 8
+training_interval = 2
+target_update_interval = 4

@@ -1,0 +1,15 @@
+[pipeline]
+base_config = "paper-follower-game.toml"
+output_dir = "results/verified/baseline-seed48-smoke"
+steps = 20
+vehicle_counts = [1000]
+strategies = ["random", "greedy", "dqn", "stackelberg"]
+evaluation_seed = 48
+dqn_training_seed = 31415
+parallelism = 2
+task_sample_rate = 0.01
+minimum_free_disk_gb = 1.0
+include_hybrid_results = false
+dqn_checkpoint_roots = [
+    "results/verified/adaptive-gate-paper-scale",
+]

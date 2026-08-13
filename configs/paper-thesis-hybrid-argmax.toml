@@ -1,0 +1,4 @@
+extends = "paper-thesis-hybrid-state-consistent.toml"
+
+[simulation]
+cloud_price_response_policy = "argmax"

@@ -1,0 +1,8 @@
+extends = "paper-thesis-hybrid.toml"
+
+[simulation]
+cloud_price_state_consistency = true
+cloud_price_response_iterations = 3
+cloud_price_response_min_iterations = 1
+cloud_price_response_tolerance = 0.0
+cloud_price_response_policy = "softmax"

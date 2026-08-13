@@ -1,0 +1,112 @@
+[simulation]
+steps = 2000
+vehicle_count = 2000
+seed = 42
+task_probability = 0.3
+strategy = "hybrid_stackelberg"
+decision_timing = "synchronous_batch"
+backend = "analytical"
+mobility = "sumo"
+output_dir = "results/verified"
+scenario_net = "scenarios/wakaba/wakaba.net.xml"
+route_output_dir = "scenarios/wakaba/generated"
+route_departure_end_s = 2000.0
+sumo_binary = "sumo"
+vehicle_compute_hz = 2.0e9
+service_compute_hz = 2.0e9
+cloud_compute_hz = 5.0e10
+cloud_base_price = 0.1
+cloud_pricing_mode = "queue"
+service_price_sensitivity = 0.5
+service_min_energy = 0.05
+service_max_queue = 5
+service_role_mode = "dynamic_idle"
+service_vehicle_ratio = 0.3
+vehicle_battery_capacity_j = 1.0e6
+service_vehicle_battery_capacity_j = 1.0e6
+task_compute_distribution = "discrete"
+task_compute_min_cycles = 1.0e9
+task_compute_max_cycles = 5.0e9
+task_compute_choices = [1.0e9, 5.0e9]
+task_data_min_mb = 1.0
+task_data_max_mb = 100.0
+task_deadline_distribution = "uniform"
+task_deadline_min_s = 2.0
+task_deadline_max_s = 3.0
+task_deadlines_s = [0.8, 1.5, 2.0]
+service_positions = [[1083.33, 1525.0], [1650.0, 1525.0], [2216.67, 1525.0], [1083.33, 2175.0], [1650.0, 2175.0], [2216.67, 2175.0]]
+
+[dqn]
+state_size = 20
+action_size = 3
+hidden_sizes = [256, 128]
+replay_capacity = 10000
+batch_size = 64
+learning_rate = 0.0005
+gamma = 0.9
+epsilon_start = 1.0
+epsilon_end = 0.05
+epsilon_decay = 0.9995
+target_update_interval = 250
+warmup_transitions = 512
+training_interval = 4
+gradient_clip_norm = 10.0
+huber_delta = 1.0
+intraop_threads = 1
+interop_threads = 1
+device = "cpu"
+
+[network]
+v2v_channel_bandwidth_mhz = 50.0
+v2i_channel_bandwidth_mhz = 200.0
+v2v_resource_efficiency = 0.75
+v2i_resource_efficiency = 0.85
+neighbor_radius_m = 500.0
+max_hops = 3
+queue_delay_coefficient = 0.1
+queue_delay_threshold = 10
+queue_delay_extra_s = 0.2
+analytical_cold_start_s = 0.1
+channel_capacity_model = "shannon"
+v2v_reference_snr_db = 40.0
+v2i_reference_snr_db = 42.0
+v2v_reference_distance_m = 100.0
+v2i_reference_distance_m = 100.0
+v2v_path_loss_exponent = 3.5
+v2i_path_loss_exponent = 3.0
+minimum_channel_distance_m = 1.0
+v2v_max_spectral_efficiency_bps_hz = 10.0
+v2i_max_spectral_efficiency_bps_hz = 10.0
+
+[energy]
+local_compute_power_w = 100.0
+v2v_transmit_power_w = 50.0
+service_compute_power_w = 80.0
+v2i_transmit_power_w = 20.0
+cloud_compute_power_w = 80.0
+
+[reward]
+cost_scale = 10.0
+timeout_penalty = 200.0
+on_time_bonus = 30.0
+
+[decision]
+delay_weight = 1.0
+energy_weight = 0.2
+payment_weight = 0.5
+energy_scale_j = 250.0
+payment_scale = 0.5
+hybrid_residual_weight = 0.0
+deadline_action_masking = false
+hybrid_objective_guidance = false
+hybrid_cloud_capacity_guard = false
+
+[serverless]
+endpoint = "http://127.0.0.1:8080"
+timeout_s = 30.0
+max_work_units = 25000
+idle_steps_to_zero = 50
+concurrency_target = 10
+max_instances = 10
+client_concurrency = 50
+capacity_utilization_target = 0.85

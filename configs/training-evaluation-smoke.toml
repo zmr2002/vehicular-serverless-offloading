@@ -1,0 +1,11 @@
+[pipeline]
+base_config = "smoke.toml"
+output_dir = "results/verified/training-evaluation-smoke"
+training_steps = 2
+evaluation_steps = 2
+vehicle_counts = [12]
+training_seed = 31415
+evaluation_seed = 42
+training_strategies = ["dqn", "hybrid_stackelberg"]
+evaluation_strategies = ["random", "greedy", "dqn", "stackelberg", "hybrid_stackelberg"]
+

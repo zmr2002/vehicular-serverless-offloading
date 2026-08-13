@@ -1,0 +1,7 @@
+[experiment]
+base_config = "smoke.toml"
+output_dir = "results/verified/smoke-matrix"
+steps = 2
+strategies = ["random", "greedy", "dqn", "stackelberg", "hybrid_stackelberg"]
+vehicle_counts = [8]
+seeds = [7]

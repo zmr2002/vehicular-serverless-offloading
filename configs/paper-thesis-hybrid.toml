@@ -1,0 +1,7 @@
+extends = "paper-follower-game.toml"
+
+[dqn]
+game_guidance_weight = 0.0
+
+[decision]
+hybrid_fusion_mode = "delegated"

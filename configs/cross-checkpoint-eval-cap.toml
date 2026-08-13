@@ -1,0 +1,9 @@
+# Structural candidate arm: bounded game evidence plus the adequacy-gated
+# defense, without the adaptive A^p damping. The cap fixes the normalization
+# asymmetry statelessly; the defense still withdraws when following the game
+# demonstrably fails.
+extends = "cross-checkpoint-eval-adequacy.toml"
+
+[decision]
+hybrid_adequacy_game_exponent = 0.0
+hybrid_game_evidence_cap = 4.0

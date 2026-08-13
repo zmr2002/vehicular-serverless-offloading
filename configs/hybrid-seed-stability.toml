@@ -1,0 +1,18 @@
+[pipeline]
+base_config = "paper-follower-game.toml"
+output_dir = "results/verified/hybrid-seed-stability"
+training_steps = 2000
+evaluation_steps = 2000
+vehicle_counts = [1000, 2000, 4000]
+training_seeds = [31415, 31416, 31417, 31418, 31419, 31420, 31421, 31422]
+validation_seeds = [45, 46, 47]
+diagnostic_seed = 48
+parallelism = 4
+validation_task_sample_rate = 0.0025
+diagnostic_detail_budget_gb = 6.0
+minimum_free_disk_gb = 12.0
+stability_penalty = 0.5
+reuse_checkpoint_roots = [
+    "results/verified/adaptive-gate-paper-scale",
+    "results/verified/adaptive-gate-reproducibility",
+]

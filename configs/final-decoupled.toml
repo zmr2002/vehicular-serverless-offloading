@@ -1,0 +1,22 @@
+# Final paired multi-seed matrix for the decoupled Hybrid. Training covers
+# only the pure DQN; hybrid_stackelberg evaluates the game arbitration over
+# that checkpoint (hybrid_checkpoint_strategy). Seeds are fresh: 31631-33 and
+# 81-83 were consumed by the variance diagnosis and must not be reused for
+# the confirmatory claim.
+[pipeline]
+base_config = "hybrid-decoupled.toml"
+output_dir = "results/verified/final-decoupled"
+training_steps = 2000
+evaluation_steps = 2000
+vehicle_counts = [1000, 2000, 4000]
+training_seeds = [31641, 31642, 31643]
+evaluation_seeds = [84, 85, 86]
+training_strategies = ["dqn"]
+evaluation_strategies = ["random", "greedy", "dqn", "stackelberg", "hybrid_stackelberg"]
+hybrid_checkpoint_strategy = "dqn"
+training_task_sample_rate = 0.0
+evaluation_task_sample_rate = 0.001
+parallelism = 6
+minimum_free_disk_gb = 12.0
+storage_upper_bound_gb = 5.0
+allow_strategy_subset = true

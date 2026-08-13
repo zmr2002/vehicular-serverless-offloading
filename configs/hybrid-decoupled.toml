@@ -1,0 +1,19 @@
+# Decoupled Hybrid: adaptive arbitration evaluated over the pure-DQN
+# checkpoint. The refutation defense and the game-evidence damping are both
+# gated by the game's demonstrated adequacy A (rolling success of
+# game-followed decisions): the defense is trusted only while following the
+# game is empirically near-perfect, and the game evidence is damped by A^p as
+# it degrades. The physical model and fusion rule materialize the
+# hybrid-optimization-study selection (enhanced_adaptive_only_replay_100k).
+extends = "paper-thesis-hybrid.toml"
+
+[decision]
+hybrid_fusion_mode = "adaptive_confidence"
+hybrid_online_reliability = "evaluate"
+hybrid_game_adequacy_arbitration = "evaluate"
+
+[dqn]
+replay_capacity = 100000
+
+[simulation]
+record_decision_diagnostics = true

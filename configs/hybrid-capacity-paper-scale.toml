@@ -1,0 +1,59 @@
+[sweep]
+base_config = "paper-improved.toml"
+checkpoint_session = "results/verified/training-evaluation-paper-scale/run-5fb0f3d0-e476de4d4cd7"
+output_dir = "results/verified/hybrid-capacity-paper-scale"
+steps = 2000
+vehicle_counts = [1000, 2000, 4000]
+seed = 42
+include_stackelberg_reference = true
+record_q_values = false
+
+[[profile]]
+name = "residual_only"
+fusion_mode = "residual"
+residual_weight = 0.75
+residual_congestion_adaptation = true
+residual_decay_start_ratio = 0.4
+residual_min_scale = 0.15
+cloud_capacity_guard = false
+cloud_guard_ratio = 1.0
+
+[[profile]]
+name = "capacity_balanced"
+fusion_mode = "residual"
+residual_weight = 1.25
+residual_congestion_adaptation = true
+residual_decay_start_ratio = 0.5
+residual_min_scale = 0.2
+cloud_capacity_guard = true
+cloud_guard_ratio = 1.0
+
+[[profile]]
+name = "capacity_early"
+fusion_mode = "residual"
+residual_weight = 0.75
+residual_congestion_adaptation = true
+residual_decay_start_ratio = 0.35
+residual_min_scale = 0.1
+cloud_capacity_guard = true
+cloud_guard_ratio = 0.8
+
+[[profile]]
+name = "capacity_elastic"
+fusion_mode = "residual"
+residual_weight = 1.0
+residual_congestion_adaptation = true
+residual_decay_start_ratio = 0.6
+residual_min_scale = 0.25
+cloud_capacity_guard = true
+cloud_guard_ratio = 1.2
+
+[[profile]]
+name = "deadline_reservation"
+fusion_mode = "residual"
+residual_weight = 1.0
+residual_congestion_adaptation = true
+residual_decay_start_ratio = 0.35
+residual_min_scale = 0.1
+cloud_capacity_guard = true
+cloud_guard_ratio = 0.6

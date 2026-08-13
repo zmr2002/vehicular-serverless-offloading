@@ -1,0 +1,7 @@
+numpy==2.2.6
+scipy==1.16.0
+torch==2.6.0
+requests==2.32.4
+eclipse-sumo==1.22.0
+sumolib==1.22.0
+matplotlib==3.10.3
